@@ -170,6 +170,28 @@ cloudflared tunnel run nextcloud
 
 </details>
 
+<details>
+<summary><strong>6. Enable Tunnel on Boot</strong></summary>
+```bash
+# Copy config to system path
+sudo mkdir -p /etc/cloudflared
+sudo cp ~/.cloudflared/config.yml /etc/cloudflared/
+sudo cp ~/.cloudflared/*.json /etc/cloudflared/
+
+# Update credentials path in /etc/cloudflared/config.yml
+credentials-file: /etc/cloudflared/YOUR_TUNNEL_ID.json
+
+# Install and enable service
+sudo cloudflared service install
+sudo systemctl enable cloudflared
+sudo systemctl start cloudflared
+
+# Verify
+sudo systemctl status cloudflared
+```
+
+</details>
+
 ## What I Learned
 
 - Container orchestration with Docker Compose
