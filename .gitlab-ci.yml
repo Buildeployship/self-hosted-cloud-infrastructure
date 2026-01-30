@@ -1,5 +1,6 @@
 mirror-to-github:
   stage: deploy
+  image: alpine/git
   only:
     - main
   script:
