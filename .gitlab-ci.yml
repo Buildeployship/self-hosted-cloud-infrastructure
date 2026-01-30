@@ -1,0 +1,6 @@
+mirror-to-github:
+  stage: deploy
+  only:
+    - main
+  script:
+    - git push --force https://buildeployship:$GITHUB_TOKEN@github.com/buildeployship/$CI_PROJECT_NAME.git HEAD:main
